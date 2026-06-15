@@ -134,14 +134,14 @@ const ProductForm = ({ isEdit: isEditMode }) => {
       if (product.category) {
         setSelectedCategory(product.category._id);
         const filteredSubs = subCategories.filter(
-          (sub) => sub.category._id === product.category._id,
+          (sub) => sub.category?._id === product.category._id,
         );
         setFilteredSubCategories(filteredSubs);
 
         if (product.subCategory) {
           setSelectedSubCategory(product.subCategory._id);
           const filteredChilds = childCategories.filter(
-            (child) => child.subCategory._id === product.subCategory._id,
+            (child) => child.subCategory?._id === product.subCategory._id,
           );
           setFilteredChildCategories(filteredChilds);
 
@@ -337,7 +337,7 @@ const ProductForm = ({ isEdit: isEditMode }) => {
 
     if (categoryId) {
       const filtered = subCategories.filter(
-        (sub) => sub.category._id === categoryId,
+        (sub) => sub.category?._id === categoryId,
       );
       setFilteredSubCategories(filtered);
     }
@@ -351,7 +351,7 @@ const ProductForm = ({ isEdit: isEditMode }) => {
 
     if (subCategoryId) {
       const filtered = childCategories.filter(
-        (child) => child.subCategory._id === subCategoryId,
+        (child) => child.subCategory?._id === subCategoryId,
       );
       setFilteredChildCategories(filtered);
     }
