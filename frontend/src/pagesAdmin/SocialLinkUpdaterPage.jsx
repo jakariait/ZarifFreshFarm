@@ -1,0 +1,16 @@
+import React from "react";
+import LayoutAdmin from "../component/componentAdmin/LayoutAdmin.jsx";
+import SocialMediaLinks from "../component/componentAdmin/SocialMediaLinks.jsx";
+import RequirePermission from "../component/componentAdmin/RequirePermission.jsx";
+
+const SocialLinkUpdaterPage = () => {
+  return (
+    <LayoutAdmin breadcrumbData={{pageDetails: "WEBSITE CONFIG", title: "Social Media Links"}}>
+      <RequirePermission permission="website_theme_color" >
+        <SocialMediaLinks />
+      </RequirePermission >
+    </LayoutAdmin>
+  );
+};
+
+export default SocialLinkUpdaterPage;
