@@ -222,7 +222,7 @@ const Footer = () => {
               <p>
                 Design and Developed by{" "}
                 <a
-                  href="https://www.digiweb.digital/"
+                  href="https://www.digiwebdigital.com/"
                   className={"text-green-500 hover:underline"}
                 >
                   DigiWeb
