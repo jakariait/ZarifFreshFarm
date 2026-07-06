@@ -119,9 +119,9 @@
   font-style: normal;
 }
 :root {
-  --primaryColor: #00395d;
+  --primaryColor: #2E7D32;
   --secondaryColor: #000000;
-  --tertiaryColor: #b6d7a8;
+  --tertiaryColor: #fffafa;
   --accentColor: #ffffff;
 }
 /* Using CSS variables for custom classes */
