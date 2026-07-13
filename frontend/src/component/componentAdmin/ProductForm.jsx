@@ -140,7 +140,7 @@ const ProductForm = ({ isEdit: isEditMode }) => {
       setFinalDiscount(product.finalDiscount || "");
       setFinalStock(product.finalStock || "");
       setPurchasePrice(product.purchasePrice || "");
-      setSelectedFlags(product.flags?.map((f) => f._id) || []);
+      setSelectedFlags(product.flags?.filter(Boolean).map((f) => f._id) || []);
       setIsActive(String(product.isActive));
       setFreeShipping(product.freeShipping || false);
 
@@ -183,14 +183,14 @@ const ProductForm = ({ isEdit: isEditMode }) => {
     if (isEditMode && product && product.category) {
       setSelectedCategory(product.category._id);
       const filteredSubs = subCategories.filter(
-        (sub) => sub.category._id === product.category._id,
+        (sub) => sub.category?._id === product.category._id,
       );
       setFilteredSubCategories(filteredSubs);
 
       if (product.subCategory) {
         setSelectedSubCategory(product.subCategory._id);
         const filteredChilds = childCategories.filter(
-          (child) => child.subCategory._id === product.subCategory._id,
+          (child) => child.subCategory?._id === product.subCategory._id,
         );
         setFilteredChildCategories(filteredChilds);
 
@@ -361,7 +361,7 @@ const ProductForm = ({ isEdit: isEditMode }) => {
 
     if (value) {
       const filtered = subCategories.filter(
-        (sub) => sub.category._id === value,
+        (sub) => sub.category?._id === value,
       );
       setFilteredSubCategories(filtered);
     }
@@ -374,7 +374,7 @@ const ProductForm = ({ isEdit: isEditMode }) => {
 
     if (value) {
       const filtered = childCategories.filter(
-        (child) => child.subCategory._id === value,
+        (child) => child.subCategory?._id === value,
       );
       setFilteredChildCategories(filtered);
     }
@@ -1032,7 +1032,7 @@ const ProductForm = ({ isEdit: isEditMode }) => {
                 {selectedFlags.length > 0 && (
                   <div className="flex flex-wrap gap-1.5 mt-3">
                     {selectedFlags.map((flagId) => {
-                      const flag = flags.find((f) => f._id === flagId);
+                      const flag = flags.find((f) => f?._id === flagId);
                       return flag ? (
                         <Badge key={flag._id} variant="secondary">
                           {flag.name}
@@ -1268,7 +1268,7 @@ const ProductForm = ({ isEdit: isEditMode }) => {
                                     <SelectContent>
                                       {attr.option &&
                                         productOptions
-                                          .find((o) => o._id === attr.option)
+                                          .find((o) => o?._id === attr.option)
                                           ?.values?.map((val) => (
                                             <SelectItem key={val} value={val}>
                                               {val}
