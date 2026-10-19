@@ -277,7 +277,7 @@ const ViewAllProducts = () => {
                     </TableCell>
                     <TableCell>
                       <Badge variant="outline">
-                        {product.category?.name || "\u2014"}
+                        {product.category?.name || "No Category"}
                       </Badge>
                     </TableCell>
                     <TableCell>
@@ -331,7 +331,7 @@ const ViewAllProducts = () => {
                           ))
                         ) : (
                           <span className="text-sm text-muted-foreground">
-                            \u2014
+                            No Flag
                           </span>
                         )}
                       </div>
